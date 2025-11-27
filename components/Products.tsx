@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { SECURITY_PRODUCTS } from '../constants';
 import { Search, Shield, Key, Lock, Activity, Eye, FileSearch, UserCheck, ExternalLink, ChevronRight, BookOpen, Layers, Terminal, AlertTriangle, ShieldCheck, Fingerprint, CheckCircle, Share2, Box } from 'lucide-react';
-import { IngressFlow, EncryptionFlow, IdentityFlow, DetectionFlow, ZeroTrustFlow, DLPFlow, SIEMFlow, SupplyChainFlow } from './Visualizations';
+import { IngressFlow, EncryptionFlow, IdentityFlow, DetectionFlow, ZeroTrustFlow, DLPFlow, SIEMFlow, SupplyChainFlow, AISecurityFlow, GovernanceFlow, RansomwareFlow, OTSecurityFlow, CybershieldFlow, SovereigntyFlow } from './Visualizations';
 import ProductSimulator from './ProductSimulator';
 import { motion } from 'framer-motion';
 
@@ -44,9 +44,15 @@ const Products = () => {
           case 'DATA_SECURITY': return <DLPFlow />;
           case 'SIEM': return <SIEMFlow />;
           case 'SUPPLY_CHAIN': return <SupplyChainFlow />;
-          default: return <div className="p-12 text-center text-slate-500 border border-dashed border-gray-300 dark:border-slate-700 rounded-lg">Architecture diagram pending...</div>
+          case 'AI_SECURITY': return <AISecurityFlow />;
+          case 'GOVERNANCE': return <GovernanceFlow />;
+          case 'RANSOMWARE': return <RansomwareFlow />;
+          case 'OT_SECURITY': return <OTSecurityFlow />;
+          case 'CYBERSHIELD': return <CybershieldFlow />;
+          case 'SOVEREIGNTY': return <SovereigntyFlow />;
+          default: return <div className="p-12 text-center text-slate-500 border border-dashed border-gray-300 dark:border-slate-700 rounded-lg">Architecture diagram pending...</div>;
       }
-  }
+  };
 
   // Master View
   if (!selectedProductId) {
@@ -94,7 +100,7 @@ const Products = () => {
                        <div className="bg-gradient-to-r from-gcp-blue to-purple-500 w-0 group-hover:w-full transition-all duration-700 h-full" />
                    </div>
                 </motion.div>
-              )
+              );
             })}
           </div>
 
