@@ -378,5 +378,6 @@ export const ModuleDetail: React.FC<ModuleDetailProps> = ({ module, onBack, onCo
       )}
       </AnimatePresence>
     </div>
+  </div>
   );
 };
