@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GCP Security Mastery</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Using Tailwind CDN for simplicity in this setup, though PostCSS is recommended for prod -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -71,12 +73,6 @@
         z-index: 50;
       }
       
-      .glass-panel {
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
       /* Global Gradient for New Dashboard Look */
       .gradient-bg {
           background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
@@ -95,19 +91,23 @@
   <script type="importmap">
 {
   "imports": {
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
-    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
     "recharts": "https://aistudiocdn.com/recharts@^3.5.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
   }
 }
 </script>
 </head>
   <body class="bg-[#F8F9FA] dark:bg-[#202124] text-[#202124] dark:text-[#E8EAED] transition-colors duration-200 antialiased font-sans overflow-hidden h-screen">
     <div id="root" class="h-full"></div>
+    <!-- Point to the TypeScript entry file -->
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

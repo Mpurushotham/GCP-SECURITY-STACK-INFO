@@ -1,14 +1,15 @@
 import { GoogleGenAI } from "@google/genai";
 
-// Ideally this comes from process.env, but per instructions we assume it's available.
-// In a real app, this would be a backend proxy call to hide the key.
-const API_KEY = process.env.API_KEY || ''; 
+// The API key must be obtained exclusively from the environment variable process.env.API_KEY.
+const API_KEY = process.env.API_KEY || '';
 
 let genAI: GoogleGenAI | null = null;
 
 try {
   if (API_KEY) {
     genAI = new GoogleGenAI({ apiKey: API_KEY });
+  } else {
+    console.warn("Gemini API Key is missing. AI features will be disabled.");
   }
 } catch (error) {
   console.error("Failed to initialize GoogleGenAI", error);
@@ -16,11 +17,11 @@ try {
 
 export const generateTutorResponse = async (question: string, context: string): Promise<string> => {
   if (!genAI) {
-    return "API Key is missing. Please ensure process.env.API_KEY is set.";
+    return "API Key is missing. Please ensure API_KEY is set in your environment variables.";
   }
 
   try {
-    const systemPrompt = `
+    const systemInstruction = `
       You are an expert Google Cloud Platform Security Architect. 
       You are tutoring a student who is learning about: ${context}.
       
@@ -32,10 +33,10 @@ export const generateTutorResponse = async (question: string, context: string): 
 
     const response = await genAI.models.generateContent({
       model: "gemini-2.5-flash",
-      contents: [
-        { role: 'user', parts: [{ text: systemPrompt }] },
-        { role: 'user', parts: [{ text: question }] }
-      ]
+      contents: question,
+      config: {
+        systemInstruction: systemInstruction,
+      }
     });
 
     return response.text || "I couldn't generate a response at this time.";
