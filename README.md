@@ -2,7 +2,7 @@
 
 The definitive, interactive learning platform for mastering Google Cloud Platform (GCP) Security. Built with love by **Purushotham Muktha**.
 
-![GCP Security Mastery Dashboard](https://via.placeholder.com/800x400?text=GCP+Security+Mastery+Dashboard)
+![GCP Security Mastery Dashboard] (https://via.placeholder.com/800x400?text=GCP+Security+Mastery+Dashboard)
 
 ## 🚀 Overview
 
