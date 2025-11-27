@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GCP Security Mastery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              gcp: {
+                blue: '#4285F4', 
+                red: '#EA4335',
+                yellow: '#FBBC05',
+                green: '#34A853',
+                gray: '#5f6368',
+                surface: '#F8F9FA',
+                dark: '#202124',
+                charcoal: '#3C4043'
+              }
+            },
+            fontFamily: {
+              sans: ['Roboto', 'system-ui', 'sans-serif'],
+              display: ['Google Sans', 'Roboto', 'system-ui', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Google Console Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #dadce0; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #bdc1c6; 
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #5f6368; 
+      }
+      
+      /* Rainbow Border Utility */
+      .rainbow-border-top {
+        position: relative;
+      }
+      .rainbow-border-top::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, 
+          #4285F4 0%, #4285F4 25%, 
+          #EA4335 25%, #EA4335 50%, 
+          #FBBC05 50%, #FBBC05 75%, 
+          #34A853 75%, #34A853 100%
+        );
+        z-index: 50;
+      }
+      
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Global Gradient for New Dashboard Look */
+      .gradient-bg {
+          background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
+          background-attachment: fixed;
+      }
+      
+      /* Custom scrollbar for sidebar */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(156, 163, 175, 0.5);
+        border-radius: 4px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-[#F8F9FA] dark:bg-[#202124] text-[#202124] dark:text-[#E8EAED] transition-colors duration-200 antialiased font-sans overflow-hidden h-screen">
+    <div id="root" class="h-full"></div>
+  </body>
+</html>
